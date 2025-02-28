@@ -1,0 +1,27 @@
+echo "enter the directory: "
+
+read dir
+
+for file in "$dir"/*; do
+        echo "$file"
+done
+
+
+
+output:
+-------
+
+enter the directory: 
+/home/mca/
+/home/mca//abc.txt
+/home/mca//dbms
+/home/mca//Desktop
+/home/mca//Documents
+/home/mca//Downloads
+/home/mca//mca
+/home/mca//mca1
+/home/mca//Music
+/home/mca//Pictures
+/home/mca//Public
+/home/mca//Templates
+/home/mca//Videos
