@@ -1,0 +1,72 @@
+#!/bin/bash
+
+
+delete_last_line() {
+  sed -i '$d' "$1"
+}
+
+
+delete_specific_line() {
+  sed -i "${2}d" "$1"
+}
+
+
+delete_line_range() {
+  sed -i "${2},${3}d" "$1"
+}
+
+
+delete_blank_lines() {
+  sed -i '/^$/d' "$1"
+}
+
+
+echo "Choose an operation:"
+echo "1. Delete last line"
+echo "2. Delete a line"
+echo "3. Delete lines from range x to y"
+echo "4. Delete all blank lines"
+read -p "Enter your choice : " choice
+
+
+read -p "Enter the file name: " filename
+
+
+case $choice in
+  1)
+    delete_last_line "$filename"
+    echo "Last line deleted from $filename."
+    ;;
+  2)
+    read -p "Enter the line number to delete: " line_number
+    delete_specific_line "$filename" "$line_number"
+    echo "Line $line_number deleted from $filename."
+    ;;
+  3)
+    read -p "Enter the start line (x): " start_line
+    read -p "Enter the end line (y): " end_line
+    delete_line_range "$filename" "$start_line" "$end_line"
+    echo "Lines $start_line to $end_line deleted from $filename."
+    ;;
+  4)
+    delete_blank_lines "$filename"
+    echo "All blank lines deleted from $filename."
+    ;;
+  *)
+    echo "Invalid choice! Exiting."
+    ;;
+esac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
