@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <filename> <text_to_append>"
+    exit 1
+fi
+
+sed -i "/\.$/a $text_to_append" "$filename"
+
+echo "Appended '$text_to_append' after each line ending with a period in $filename."
